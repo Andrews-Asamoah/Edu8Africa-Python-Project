@@ -1,27 +1,21 @@
-"""Built in modules"""
-from string import (ascii_lowercase,ascii_uppercase,digits,punctuation)
+"""import string and random built in modules"""
+from string import (ascii_lowercase, ascii_uppercase, digits, punctuation)
 from random import choices
 
 def password_generator():
     """This function generates automatic password for users"""
 
-    lower_case = ascii_lowercase
-    upper_case = ascii_uppercase
-    numbers = digits
-    symbols = punctuation
-
-    temp_password = ''
-
-    print('''Welcome to Edu8Africa Password Generator Application''')
+    print('Welcome to Edu8Africa Password Generator Application\n')
 
     while True:
         try:
+            # typecasting the string input to integer
             length = int(input("Enter Password Length: "))
             if length >= 12:
-                password = temp_password.join(choices(
-                    upper_case+lower_case+numbers+symbols, k=length))
+                # initialized an empty string and added random values
+                # from the string module based on the user input
+                password = ''.join(choices(ascii_uppercase+ascii_lowercase+digits+punctuation, k=length))
                 print(f'Your unique password is: {password}')
-                print(len(password))
             else:
                 print("Password length Should be at least 12 Characters long ")
 
